@@ -3,10 +3,9 @@ package apdata
 func (c *Client) MarkEntry() error {
 	c.logger.Println("Starting transaction")
 	batidasResponse, err := c.lowcli.GenericTransaction(true, map[string]string{
-		// "serverClass":  "ConBatidasTimerCalcEnabled",
-		// "sMessage":     "1895936000",
-		// "killAfterUse": "false",
-		// "selectedEmployee": "6008048",
+		"serverClass":  "ConBatidasTimerCalcEnabled",
+		"sMessage":     "1895936000",
+		"killAfterUse": "false",
 	})
 	if err != nil {
 		c.logger.Fatalln(err)

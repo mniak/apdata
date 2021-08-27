@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "New Entry w/ wrong password",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/cli",
+            "args": [
+                "new-entry", 
+                "--company", "pppppppp", 
+                "-u", "uuuuuuuu", 
+                "-p", "ababababababa",
+                "-v",
+            ]
+        }
+    ]
+}

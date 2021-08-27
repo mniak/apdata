@@ -14,7 +14,9 @@ type (
 
 func defaultClientOptionsData() ClientOptionsData {
 	return ClientOptionsData{
-		interceptors: make([]mediary.Interceptor, 0),
+		interceptors: []mediary.Interceptor{
+			normalizeResponseJSON,
+		},
 	}
 }
 

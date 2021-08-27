@@ -26,7 +26,7 @@ func NewClient(baseurl string, options ...ClientOption) (*Client, error) {
 	optionsData := combineOptions(options)
 
 	for _, i := range optionsData.interceptors {
-		builder.AddInterceptors(i)
+		builder = builder.AddInterceptors(i)
 	}
 
 	httpClient := builder.Build()
@@ -38,6 +38,7 @@ func NewClient(baseurl string, options ...ClientOption) (*Client, error) {
 
 	return &Client{
 		client: resty.NewWithClient(httpClient).
+			SetDebug(optionsData.debug).
 			SetHostURL(baseurl).
 			SetCookieJar(jar),
 		cookiejar: jar,

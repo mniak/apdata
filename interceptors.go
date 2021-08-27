@@ -8,7 +8,7 @@ import (
 	"github.com/HereMobilityDevelopers/mediary"
 )
 
-func dumpInterceptor(req *http.Request, handler mediary.Handler) (*http.Response, error) {
+func DumpInterceptor(req *http.Request, handler mediary.Handler) (*http.Response, error) {
 	if bytes, err := httputil.DumpRequestOut(req, true); err == nil {
 		fmt.Printf("%s", bytes)
 	}
