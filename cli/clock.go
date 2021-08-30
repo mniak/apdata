@@ -1,21 +1,18 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/mniak/apdata"
 	"github.com/spf13/cobra"
 )
 
 func init() {
-	rootCmd.AddCommand(&newEntryCmd)
+	rootCmd.AddCommand(&clockCmd)
 }
 
-var newEntryCmd = cobra.Command{
-	Use: "new-entry",
-	Aliases: []string{
-		"add-entry",
-		"mark-entry",
-		"entry",
-	},
+var clockCmd = cobra.Command{
+	Use:   "clock",
 	Short: "Creates a new timecard entry",
 	Run: func(cmd *cobra.Command, args []string) {
 		company, err := cmd.Flags().GetString("company")
@@ -37,7 +34,8 @@ var newEntryCmd = cobra.Command{
 		err = client.Login(username, password)
 		handle(err)
 
-		err = client.MarkEntry()
+		msg, err := client.Clock()
 		handle(err)
+		fmt.Println(msg)
 	},
 }

@@ -16,5 +16,5 @@ func (c *Client) ExecCalcLPCAndSaveTime(hwd int64) (*GenericResponse, error) {
 		return nil, err
 	}
 
-	return c.handleResponse(response, "mark entry")
+	return c.handleResponse(response, "clocking")
 }
